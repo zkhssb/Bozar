@@ -14,26 +14,34 @@ import io.github.vimasig.bozar.obfuscator.utils.model.BozarConfig;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class ConfigManager {
 
     private final Controller controller;
+
     public ConfigManager(Controller controller) {
         this.controller = controller;
     }
 
     public void loadConfig(File file) throws IOException {
-        String str = Files.readString(file.toPath());
+        byte[] bytes = Files.readAllBytes(file.toPath());
+        String str = new String(bytes, StandardCharsets.UTF_8);
         try {
             // Deserializer for input/output file
             JsonDeserializer<BozarConfig> deserializer = (jsonElement, type, jsonDeserializationContext) -> {
                 try {
                     BozarConfig bozarConfig = new Gson().fromJson(jsonElement, BozarConfig.class);
                     var reflect = new Reflection<>(bozarConfig);
-                    reflect.setDeclaredField("input", new File(((JsonObject)jsonElement).get("input").getAsString()));
-                    reflect.setDeclaredField("output", Path.of(((JsonObject)jsonElement).get("output").getAsString()));
+                    var gObject = (JsonObject) jsonElement;
+
+                    if(!gObject.has("input")) gObject.add("input", new JsonPrimitive(""));
+                    if(!gObject.has("output")) gObject.add("output", new JsonPrimitive(""));
+
+                    reflect.setDeclaredField("input", new File(gObject.get("input").getAsString()));
+                    reflect.setDeclaredField("output", Path.of(gObject.get("output").getAsString()));
                     return bozarConfig;
                 } catch (JsonSyntaxException e) {
                     e.printStackTrace();
@@ -46,7 +54,7 @@ public class ConfigManager {
                     .registerTypeAdapter(BozarConfig.class, deserializer)
                     .create()
                     .fromJson(str, BozarConfig.class);
-            if(bozarConfig != null)
+            if (bozarConfig != null)
                 this.loadConfig(bozarConfig);
             else throw new NullPointerException("bozarConfig");
         } catch (JsonSyntaxException | NullPointerException e) {
@@ -146,7 +154,7 @@ public class ConfigManager {
 
     public void loadDefaultConfig() throws IOException {
         File f = new File("bozarConfig.json");
-        if(f.exists() && f.isFile())
+        if (f.exists() && f.isFile())
             this.loadConfig(f);
     }
 }

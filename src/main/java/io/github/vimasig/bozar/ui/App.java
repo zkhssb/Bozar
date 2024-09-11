@@ -15,6 +15,9 @@ import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 
+// build
+// jpackage --type app-image -m "io.github.vimasig.bozar/io.github.vimasig.bozar.ui.App" --runtime-image ".\target\app" --dest ".\target\build-package" --name "Bozar"
+
 public class App extends Application {
 
     @Override
@@ -23,6 +26,7 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader();
         Parent root = fxmlLoader.load(getClass().getResource("/menu_zh.fxml").openStream());
         Controller controller = fxmlLoader.getController();
+        controller.setStage(stage);
 
         // Handle command lines
         CommandLineParser parser = new DefaultParser();
