@@ -45,35 +45,36 @@ public class BozarConfig {
 
     public static class BozarOptions {
         public enum RenameOption {
-            @SerializedName("Off") OFF,
-            @SerializedName("Alphabet") ALPHABET,
-            @SerializedName("Invisible") INVISIBLE,
-            @SerializedName("IlIlIlIlIl") IlIlIlIlIl,
+            @SerializedName("关闭") OFF,
+            @SerializedName("字母") ALPHABET,
+            @SerializedName("隐藏") INVISIBLE,
+            @SerializedName("Il模式") IlIlIlIlIl,
         }
 
         public enum LineNumberOption {
-            @SerializedName("Keep") KEEP,
-            @SerializedName("Delete") DELETE,
-            @SerializedName("Randomize") RANDOMIZE
+            @SerializedName("保留") KEEP,
+            @SerializedName("删除") DELETE,
+            @SerializedName("随机") RANDOMIZE
         }
 
         public enum LocalVariableOption {
-            @SerializedName("Keep") KEEP,
-            @SerializedName("Delete") DELETE,
-            @SerializedName("Obfuscate") OBFUSCATE
+            @SerializedName("保留") KEEP,
+            @SerializedName("删除") DELETE,
+            @SerializedName("混淆") OBFUSCATE
         }
 
         public enum ControlFlowObfuscationOption {
-            @SerializedName("Off") OFF,
-            @SerializedName("Light") LIGHT,
-            @SerializedName("Heavy") HEAVY
+            @SerializedName("关闭") OFF,
+            @SerializedName("轻度") LIGHT,
+            @SerializedName("重度") HEAVY
         }
 
         public enum ConstantObfuscationOption {
-            @SerializedName("Off") OFF,
-            @SerializedName("Light") LIGHT,
-            @SerializedName("Flow") FLOW
+            @SerializedName("关闭") OFF,
+            @SerializedName("轻度") LIGHT,
+            @SerializedName("膨胀") FLOW
         }
+
 
         // Obfuscation options
         private final RenameOption rename;

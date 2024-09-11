@@ -13,7 +13,7 @@ import org.objectweb.asm.tree.MethodNode;
 public class UnusedStringTransformer extends ClassTransformer {
 
     public UnusedStringTransformer(Bozar bozar) {
-        super(bozar, "Unused string", BozarCategory.WATERMARK);
+        super(bozar, "未使用的字符串", BozarCategory.WATERMARK);
     }
 
     @Override

@@ -12,7 +12,7 @@ import java.util.List;
 public class LocalVariableTransformer extends ClassTransformer {
 
     public LocalVariableTransformer(Bozar bozar) {
-        super(bozar, "Local variables", BozarCategory.STABLE);
+        super(bozar, "局部变量", BozarCategory.STABLE);
     }
 
     @Override

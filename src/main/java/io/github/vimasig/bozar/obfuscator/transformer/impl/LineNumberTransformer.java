@@ -14,7 +14,7 @@ import java.util.List;
 public class LineNumberTransformer extends ClassTransformer {
 
     public LineNumberTransformer(Bozar bozar) {
-        super(bozar, "Line numbers", BozarCategory.STABLE);
+        super(bozar, "行号", BozarCategory.STABLE);
     }
 
     @Override

@@ -10,7 +10,7 @@ import org.objectweb.asm.tree.ClassNode;
 public class ClassRenamerTransformer extends RenamerTransformer {
 
     public ClassRenamerTransformer(Bozar bozar) {
-        super(bozar, "Rename", BozarCategory.STABLE);
+        super(bozar, "类重命名", BozarCategory.STABLE);
     }
 
     @Override

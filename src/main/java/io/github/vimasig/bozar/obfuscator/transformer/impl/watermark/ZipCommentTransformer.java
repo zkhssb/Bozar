@@ -10,7 +10,7 @@ import java.util.jar.JarOutputStream;
 public class ZipCommentTransformer extends ClassTransformer {
 
     public ZipCommentTransformer(Bozar bozar) {
-        super(bozar, "Zip comment", BozarCategory.WATERMARK);
+        super(bozar, "压缩包简介", BozarCategory.WATERMARK);
     }
 
     @Override

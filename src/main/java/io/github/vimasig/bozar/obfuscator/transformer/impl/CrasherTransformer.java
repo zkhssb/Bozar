@@ -16,7 +16,7 @@ import java.util.jar.JarOutputStream;
 public class CrasherTransformer extends ClassTransformer {
 
     public CrasherTransformer(Bozar bozar) {
-        super(bozar, "Decompiler crasher", BozarCategory.ADVANCED);
+        super(bozar, "使反编译器崩溃", BozarCategory.ADVANCED);
     }
 
     public static final String PACKAGE_NAME;

@@ -15,7 +15,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class HeavyControlFlowTransformer extends ControlFlowTransformer {
 
     public HeavyControlFlowTransformer(Bozar bozar) {
-        super(bozar, "Control Flow obfuscation", BozarCategory.ADVANCED);
+        super(bozar, "控制流混淆", BozarCategory.ADVANCED);
     }
 
     private static final String FLOW_FIELD_NAME = String.valueOf((char)5097);

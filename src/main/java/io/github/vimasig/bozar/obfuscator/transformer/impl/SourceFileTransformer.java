@@ -9,7 +9,7 @@ import org.objectweb.asm.tree.ClassNode;
 public class SourceFileTransformer extends ClassTransformer {
 
     public SourceFileTransformer(Bozar bozar) {
-        super(bozar, "Remove SourceFile", BozarCategory.STABLE);
+        super(bozar, "移除源文件", BozarCategory.STABLE);
     }
 
     @Override

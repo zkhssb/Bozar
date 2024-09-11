@@ -12,7 +12,7 @@ import java.util.List;
 public class ShuffleTransformer extends ClassTransformer {
 
     public ShuffleTransformer(Bozar bozar) {
-        super(bozar, "Randomize obfuscation", BozarCategory.STABLE);
+        super(bozar, "随机化混淆", BozarCategory.STABLE);
     }
 
     @Override

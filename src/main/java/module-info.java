@@ -1,6 +1,6 @@
 module io.github.vimasig.bozar {
     requires com.google.gson;
-    requires commons.cli;
+    requires org.apache.commons.cli;
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
