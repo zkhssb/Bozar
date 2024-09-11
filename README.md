@@ -1,6 +1,6 @@
 # Bozar - 带 GUI 的 Java 字节码混淆器
 
-![alt text](https://i.imgur.com/SmgJbll.png)
+![image](https://github.com/user-attachments/assets/3b55719d-4332-4f1a-bed6-a4a49a91d26c)
 
 ## :warning: 此版本为Bozar的修改版本 :warning:
 
