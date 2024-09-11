@@ -11,7 +11,7 @@ import org.objectweb.asm.tree.FieldNode;
 public class FieldRenamerTransformer extends RenamerTransformer {
 
     public FieldRenamerTransformer(Bozar bozar) {
-        super(bozar, "Rename", BozarCategory.STABLE);
+        super(bozar, "字段重命名", BozarCategory.STABLE);
     }
 
     @Override

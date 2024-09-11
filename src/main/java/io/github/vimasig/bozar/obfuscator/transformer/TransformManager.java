@@ -136,7 +136,7 @@ public class TransformManager {
 
             // Revert changes if method size is invalid
             if (!ASMUtils.isMethodSizeValid(methodNode)) {
-                this.bozar.log("Cannot apply \"%s\" on \"%s\" due to low method capacity", classTransformer.getName(), classNode.name + "." + methodNode.name + methodNode.desc);
+                this.bozar.log("由于方法容量不足，无法在 \"%s\" 上应用 \"%s\"", classTransformer.getName(), classNode.name + "." + methodNode.name + methodNode.desc);
                 methodNode.instructions = ASMUtils.arrayToList(insns);
             }
         });

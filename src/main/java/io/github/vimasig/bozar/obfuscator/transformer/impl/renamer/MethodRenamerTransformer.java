@@ -23,7 +23,7 @@ public class MethodRenamerTransformer extends RenamerTransformer {
     private final List<String> whitelistedMethods = new ArrayList<>();
 
     public MethodRenamerTransformer(Bozar bozar) {
-        super(bozar, "Rename", BozarCategory.STABLE);
+        super(bozar, "方法重命名", BozarCategory.STABLE);
         whitelistedMethods.addAll(List.of(
                 "main([Ljava/lang/String;)V",
                 "premain(Ljava/lang/String;Ljava/lang/instrument/Instrumentation;)V",

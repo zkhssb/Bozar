@@ -15,7 +15,7 @@ import java.util.jar.JarOutputStream;
 public class DummyClassTransformer extends ClassTransformer {
 
     public DummyClassTransformer(Bozar bozar) {
-        super(bozar, "Dummy class", BozarCategory.WATERMARK);
+        super(bozar, "虚拟类", BozarCategory.WATERMARK);
     }
 
     @Override

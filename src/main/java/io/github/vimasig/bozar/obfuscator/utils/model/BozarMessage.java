@@ -6,13 +6,13 @@ import javax.swing.*;
 
 public enum BozarMessage {
 
-    TITLE("Bozar Java Bytecode Obfuscator"),
+    TITLE("Bozar 混淆器"),
     VERSION_TEXT(TITLE.toString() + " v" + BozarUtils.getVersion()),
 
     // Update checker messages
-    NEW_UPDATE_AVAILABLE("New update is available: v"),
-    CANNOT_CHECK_UPDATE("Cannot check the latest version." + System.lineSeparator() + "Connection failed."),
-    CANNOT_OPEN_URL("Cannot open URL. %s, is not supported in your platform.");
+    NEW_UPDATE_AVAILABLE("新版本已发布: v"),
+    CANNOT_CHECK_UPDATE("无法检测新版本" + System.lineSeparator() + "连接失败."),
+    CANNOT_OPEN_URL("无法访问地址. %s, 不支持您的操作系统.");
 
     private final String message;
     BozarMessage(String message) {

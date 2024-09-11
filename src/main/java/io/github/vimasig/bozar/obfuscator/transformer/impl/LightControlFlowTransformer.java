@@ -13,18 +13,18 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class LightControlFlowTransformer extends ControlFlowTransformer {
 
+    private static final String FLOW_FIELD_NAME = String.valueOf((char) 5096);
+    private static final int[] accessArr = new int[]{0, ACC_PUBLIC, ACC_PRIVATE, ACC_PROTECTED};
+    private long flowFieldValue = 0;
+
     public LightControlFlowTransformer(Bozar bozar) {
-        super(bozar, "Control Flow obfuscation", BozarCategory.ADVANCED);
+        super(bozar, "控制流混淆", BozarCategory.ADVANCED);
     }
 
-    private static final String FLOW_FIELD_NAME = String.valueOf((char)5096);
-    private static final int[] accessArr = new int[] { 0, ACC_PUBLIC, ACC_PRIVATE, ACC_PROTECTED };
-
-    private long flowFieldValue = 0;
     @Override
     public void transformClass(ClassNode classNode) {
         // Skip interfaces because we cannot declare mutable fields in that
-        if(!ASMUtils.isClassEligibleToModify(classNode)) return;
+        if (!ASMUtils.isClassEligibleToModify(classNode)) return;
 
         this.flowFieldValue = ThreadLocalRandom.current().nextLong();
         classNode.fields.add(new FieldNode(accessArr[ThreadLocalRandom.current().nextInt(accessArr.length)] | ACC_STATIC, FLOW_FIELD_NAME, "J", null, this.flowFieldValue));
@@ -32,7 +32,7 @@ public class LightControlFlowTransformer extends ControlFlowTransformer {
 
     @Override
     public void transformMethod(ClassNode classNode, MethodNode methodNode) {
-        if(!ASMUtils.isMethodEligibleToModify(classNode, methodNode)) return;
+        if (!ASMUtils.isMethodEligibleToModify(classNode, methodNode)) return;
 
         // Main obfuscation
         Arrays.stream(methodNode.instructions.toArray())
@@ -83,7 +83,7 @@ public class LightControlFlowTransformer extends ControlFlowTransformer {
                             before.add(label1);
                             before.add(new InsnNode(L2I));
                             before.add(getRandomLookupSwitch(2 + ThreadLocalRandom.current().nextInt(3),
-                                    (int)this.flowFieldValue,
+                                    (int) this.flowFieldValue,
                                     new SwitchBlock(InsnBuilder.createEmpty().insn(new JumpInsnNode(GOTO, label4)).getInsnList()),
                                     () -> new SwitchBlock(InsnBuilder.createEmpty().insn(ASMUtils.pushLong(ThreadLocalRandom.current().nextLong()), new JumpInsnNode(GOTO, label0)).getInsnList()),
                                     InsnBuilder.createEmpty().getInsnList()));

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class InnerClassTransformer extends ClassTransformer {
 
     public InnerClassTransformer(Bozar bozar) {
-        super(bozar, "Remove inner classes", BozarCategory.STABLE);
+        super(bozar, "移除内部类", BozarCategory.STABLE);
     }
 
     public void transformClass(ClassNode classNode) {

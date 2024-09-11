@@ -21,7 +21,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         // FX GUI
         FXMLLoader fxmlLoader = new FXMLLoader();
-        Parent root = fxmlLoader.load(getClass().getResource("/menu.fxml").openStream());
+        Parent root = fxmlLoader.load(getClass().getResource("/menu_zh.fxml").openStream());
         Controller controller = fxmlLoader.getController();
 
         // Handle command lines

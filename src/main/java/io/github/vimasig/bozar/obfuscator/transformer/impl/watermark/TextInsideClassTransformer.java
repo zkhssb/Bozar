@@ -9,7 +9,7 @@ import org.objectweb.asm.ClassWriter;
 public class TextInsideClassTransformer extends ClassTransformer {
 
     public TextInsideClassTransformer(Bozar bozar) {
-        super(bozar, "Text inside class", BozarCategory.WATERMARK);
+        super(bozar, "类中的文本", BozarCategory.WATERMARK);
     }
     
     @Override

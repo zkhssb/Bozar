@@ -16,7 +16,7 @@ import java.util.stream.IntStream;
 public class ConstantTransformer extends ClassTransformer {
 
     public ConstantTransformer(Bozar bozar) {
-        super(bozar, "Constant obfuscation", BozarCategory.ADVANCED);
+        super(bozar, "不断混淆", BozarCategory.ADVANCED);
     }
 
     private void obfuscateNumbers(ClassNode classNode, MethodNode methodNode) {
